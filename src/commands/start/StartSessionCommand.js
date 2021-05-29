@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 
 module.exports = class TestCommand extends BaseCommand {
   constructor() {
-    super("start", "testing", []);
+    super("start", "sessions", ["s"]);
   }
 
   async run(client, message, args) {
@@ -23,7 +23,7 @@ module.exports = class TestCommand extends BaseCommand {
         { name: "Mentor", value: `${message.author.username}`, inline: true },
         { name: "Domain", value: "Web Development", inline: true },
         { name: "Github Link", value: `${options.githubLink}` },
-        { name: "Join", value: `${options.channelID}` }
+        { name: "Join the voice channel", value: `${options.channelID}` }
       )
       .setTimestamp()
       .setFooter(
