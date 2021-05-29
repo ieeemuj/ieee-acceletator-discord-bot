@@ -1,0 +1,6 @@
+{
+  "name": "AcceleratorBot",
+  "language": "javascript",
+  "manager": "npm",
+  "prefix": "-"
+}
