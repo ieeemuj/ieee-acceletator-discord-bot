@@ -31,10 +31,6 @@ module.exports = class TestCommand extends BaseCommand {
           value: `${options.channelID}`,
         }
       );
-    // .setFooter(
-    //   "I",
-    //   ""
-    // );
     let confirm = await message.channel.send({
       content: "@here",
       embed: sessionStartEmbed,
