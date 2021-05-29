@@ -9,27 +9,35 @@ module.exports = class TestCommand extends BaseCommand {
   async run(client, message, args) {
     // from a webhook
     const options = {
-      title: "Week 1",
+      title: "Introduction",
       channelID: "<#847916638279827506>",
-      githubLink: "[IEEECS/Webdev2021](https://discordjs.guide/)",
+      githubLink: "https://github.com/manavendrasen/WEBTECHLAB-2021",
     };
 
     const sessionStartEmbed = new Discord.MessageEmbed()
       .setColor("#FCA315")
-      .setTitle(options.title ? `${options.title}` : "Null")
-      .setURL("https://github.com/manavendrasen/WEBTECHLAB-2021")
-      .setThumbnail("https://i.imgur.com/kKe9hzu.jpg")
-      .addFields(
-        { name: "Mentor", value: `${message.author.username}`, inline: true },
-        { name: "Domain", value: "Web Development", inline: true },
-        { name: "Github Link", value: `${options.githubLink}` },
-        { name: "Join the voice channel", value: `${options.channelID}` }
-      )
-      .setTimestamp()
-      .setFooter(
+      .setAuthor(
         "IEEE CS Accelerator Program 2020-21",
         "https://i.imgur.com/kKe9hzu.jpg"
+      )
+      .setThumbnail("https://i.imgur.com/kKe9hzu.jpg")
+      .addFields(
+        { name: "Topic", value: `${options.title}` },
+        { name: "Mentor", value: message.author.username, inline: true },
+        { name: "Domain", value: "Web Development", inline: true },
+        { name: "Repository", value: `${options.githubLink}` },
+        {
+          name: ":sparkles:  Join Voice Channel  ",
+          value: `${options.channelID}`,
+        }
       );
-    let confirm = await message.channel.send({ embed: sessionStartEmbed });
+    // .setFooter(
+    //   "I",
+    //   ""
+    // );
+    let confirm = await message.channel.send({
+      content: "@here",
+      embed: sessionStartEmbed,
+    });
   }
 };
