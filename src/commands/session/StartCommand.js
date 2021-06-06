@@ -34,7 +34,6 @@ module.exports = class TestCommand extends BaseCommand {
         }
       );
     let confirm = await message.channel.send({
-      content: "@here",
       embed: sessionStartEmbed,
     });
   }
