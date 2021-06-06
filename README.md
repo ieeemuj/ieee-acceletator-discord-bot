@@ -125,12 +125,13 @@ To get a local copy up and running follow these simple steps.
 
 - **./start or ./s**
   Starts the session and will display a embed message
-  <img src="https://i.imgur.com/pAyJwDZ.jpg" alt="usage">
+  ![./start or ./s](https://i.imgur.com/pAyJwDZ.jpg)
+
 - **./attendance or ./a**
   Collects the names of the attendees in the mentor's voice channel and sends the list to the mentor as a direct message.
-  <img src="https://i.imgur.com/OOUw7Mq.jpg" alt="usage">
+  ![./attendance or ./a](https://i.imgur.com/OOUw7Mq.jpg)
   The mentor will receive a DM-
-  <img src="https://i.imgur.com/LHhdwjj.jpg" alt="usage">
+  ![DM](https://i.imgur.com/LHhdwjj.jpg)
   The attendance will be updated in the google sheet associated with the bot.
 
 ### Configuration
