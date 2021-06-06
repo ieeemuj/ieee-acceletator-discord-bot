@@ -129,9 +129,13 @@ To get a local copy up and running follow these simple steps.
 
 - **./attendance or ./a**
   Collects the names of the attendees in the mentor's voice channel and sends the list to the mentor as a direct message.
+
   ![./attendance or ./a](https://i.imgur.com/OOUw7Mq.jpg)
+
   The mentor will receive a DM-
+
   ![DM](https://i.imgur.com/LHhdwjj.jpg)
+
   The attendance will be updated in the google sheet associated with the bot.
 
 ### Configuration
