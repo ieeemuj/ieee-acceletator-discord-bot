@@ -1,19 +1,21 @@
 const BaseCommand = require("../../utils/structures/BaseCommand");
 const Discord = require("discord.js");
-
+const db = require("../../db/firestore");
 module.exports = class TestCommand extends BaseCommand {
   constructor() {
     super("start", "sessions", ["s"]);
   }
 
   async run(client, message, args) {
-    // from a webhook
-    const options = {
-      title: "Introduction",
-      channelID: "<#847916638279827506>",
-      githubLink: "https://github.com/manavendrasen/WEBTECHLAB-2021",
-    };
+    // get all the details of the guild
+    const result = await db.collection("guilds").doc(message.guild.id).get();
 
+    // find the details of the mentor
+    const mentor = result
+      .data()
+      .mentors.find((mentor) => mentor.id == message.author.id);
+
+    // Embed message
     const sessionStartEmbed = new Discord.MessageEmbed()
       .setColor("#FCA315")
       .setAuthor(
@@ -22,13 +24,13 @@ module.exports = class TestCommand extends BaseCommand {
       )
       .setThumbnail("https://i.imgur.com/kKe9hzu.jpg")
       .addFields(
-        { name: "Topic", value: `${options.title}` },
-        { name: "Mentor", value: message.author.username, inline: true },
-        { name: "Domain", value: "Web Development", inline: true },
-        { name: "Repository", value: `${options.githubLink}` },
+        // { name: "Topic", value: `${options.title}` },
+        { name: "Mentor", value: `${mentor.name}`, inline: true },
+        { name: "Domain", value: `${mentor.domain}`, inline: true },
+        // { name: "Repository", value: `${options.githubLink}` },
         {
           name: ":sparkles:  Join Voice Channel  ",
-          value: `${options.channelID}`,
+          value: `<#${mentor.channel}>`,
         }
       );
     let confirm = await message.channel.send({

@@ -13,18 +13,23 @@ module.exports = class MessageEvent extends BaseEvent {
   async run(client, message) {
     if (message.author.bot) return;
 
+    // check if the guild exists in our database and get the prefix
     let result = await db.collection("guilds").doc(message.guild.id).get();
     if (result.exists) {
       clientConfig.prefix = result.data().prefix;
       clientConfig.mentorRoleID = result.data().mentorRoleID;
     }
 
-    if (!message.member._roles.includes(clientConfig.mentorRoleID)) {
-      message.channel.send("Only Mentors can manage sessions");
-      return;
-    }
-
     if (message.content.startsWith(clientConfig.prefix)) {
+      // if the author is not a mentor or admin they cannot trigger the function
+      if (
+        !message.member._roles.includes(clientConfig.mentorRoleID) &&
+        !message.member.hasPermission("ADMINISTRATOR")
+      ) {
+        message.channel.send("Permission Denied");
+        return;
+      }
+
       const [cmdName, ...cmdArgs] = message.content
         .slice(clientConfig.prefix.length)
         .trim()

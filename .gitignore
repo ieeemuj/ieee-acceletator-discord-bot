@@ -4,4 +4,7 @@
 # firebase creds
 firebaseServiceAccount.json
 
+# sheets api
+googleApiCredentials.json
+
 .env
