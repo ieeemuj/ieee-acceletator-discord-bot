@@ -171,8 +171,10 @@ Distributed under the MIT License. See `LICENSE` for more information. -->
 
 ## Contact
 
-Project Link: [https://github.com/ieeemuj/acceletatorBot](https://github.com/ieeemuj/acceletatorBot)
+- [Manavendra Sen](https://github.com/manavendrasen)
+- [Divyanshu Sharma](https://github.com/d1vshar)
 
+### PRs are welcome 🚀
 <!-- ACKNOWLEDGEMENTS -->
 <!--
 ## Acknowledgements
